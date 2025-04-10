@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Scrap Book";
+    ViewBag.MainMenu = "Scrap";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts {
+    <script src="~/page/ScrapData.js"></script>
+}
+
+<div class="page-wrapper full-page">
+    <div class="page-content d-flex justify-content-center">
+        <div class="row w-100 mx-0 auth-page">
+            <div class="col-md-8 col-xl-4 mx-auto">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="auth-form-wrapper px-4 py-5">
+                                <div class="text-center">
+                                    <h5 class="text-muted fw-normal mb-4">Scrap Book Page Number</h5>
+                                </div>
+                                <form id="scrap-form" class="forms-sample">
+                                    <div class="mb-3">
+                                        <label for="page" class="form-label">Page Number</label>
+                                        <input type="text" class="form-control" id="page-number" placeholder="Page Number" autofocus required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="book-year" class="form-label">Year</label>
+                                        <input type="text" class="form-control" id="book-year" placeholder="Book Year" required>
+                                    </div>
+                                    <div class="text-center">
+                                        <button id="submit-form" class="btn btn-primary me-2 mb-2 mb-md-0 text-white">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
