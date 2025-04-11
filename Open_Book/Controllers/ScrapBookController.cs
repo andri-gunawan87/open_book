@@ -25,9 +25,9 @@ namespace Open_Book.Controllers
 
             if (isSuccess)
             {
-                return Json(new { success = false, message = "Failed to scrap data" });
+                return Ok(new { success = true,message = "Success to scrap data"  });
             }
-            return Json(new { success = true, message = "Success to scrap data" });
+            return BadRequest(new { success = false, message = "Failed to scrap data" });
         }
 
     }

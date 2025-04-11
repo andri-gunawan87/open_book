@@ -31,6 +31,7 @@ namespace Open_Book.Models.Scrap
         public string Isbn { get; set; } = string.Empty;
         [JsonPropertyName("total_pages")]
         public string TotalPages { get; set; } = string.Empty;
+        public string Price { get; set; } = string.Empty;
         public string Size { get; set; } = string.Empty;
         [JsonPropertyName("published_date")]
         public string PublishedDate { get; set; } = string.Empty;

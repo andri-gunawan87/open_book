@@ -73,7 +73,8 @@ namespace Open_Book.Db
                 var entity = (BaseAuditTrail)entry.Entity;
 
                 var now = DateTime.UtcNow;
-                var currentUser = _currentUserService?.GetUserId();
+                // var currentUser = _currentUserService?.GetUserId();
+                var currentUser = "System";
 
                 switch (entry.State)
                 {
