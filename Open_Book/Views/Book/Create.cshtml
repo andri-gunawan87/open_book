@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Book";
+    ViewBag.MainMenu = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Stylesheets {
+    <link rel="stylesheet" href="~/lib/select2/select2.min.css">
+}
+
+@section Scripts {
+    <script src="~/lib/select2//select2.min.js"></script>
+    <script src="~/Page/BookCreate.js"></script>
+}
+<style>
+    .select2-selection__choice {
+        background-color: #6571ff !important;
+        color: #fff !important;
+        border-color: #6571ff !important;
+    }
+
+    .select2-selection__choice__remove {
+        color: #fff !important;
+        opacity: 0.5 !important;
+    }
+</style>
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-center align-items-baseline mb-4 mb-md-3">
+            <h4 class="card-title mb-0">Tambah Data Buku</h4>
+        </div>
+        <div class="tab-content">
+            <form id="create-book-form" class="needs-validation" novalidate="">
+                <div class="row g-1 mb-1">
+                    <div class="col-12">
+                        <div class="border border-3 p-3">
+                            <div class="pb-2">
+                                <div class="border-bottom my-2">1. DATA BUKU</div>
+                                <label class="form-label pt-1">Judul</label>
+                                <input id="title" type="text" class="form-control" required>
+
+                                <label class="form-label pt-1">Link Cover Buku</label>
+                                <input id="cover-image" type="text" class="form-control" required>
+
+                                <label class="form-label pt-1">Ringkasan</label>
+                                <textarea id="summary" class="form-control" rows="3" placeholder="Ringkasan Buku" required></textarea>
+                            </div>
+                        </div>
+                        <div class="border border-3 p-3 mt-1">
+                            <div class="pb-2">
+                                <div class="border-bottom my-2">2. PENGARANG</div>
+                                <label class="form-label pt-1">Nama</label>
+                                <input id="author-name" type="text" class="form-control" required>
+                                <label class="form-label pt-1">Link Url</label>
+                                <input id="author-url" type="text" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="border border-3 p-3 mt-1">
+                            <div class="pb-2">
+                                <div class="border-bottom my-2">3. DETAIL BUKU</div>
+                                <div class="row g-1 mb-1">
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">No GM</label>
+                                        <input id="details-no-gm" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">ISBN</label>
+                                        <input id="details-isbn" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">Ukuran Buku</label>
+                                        <input id="details-size" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">Jumlah Halaman</label>
+                                        <input id="details-total-pages" type="number" class="form-control" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">Harga</label>
+                                        <input id="details-price" type="number" class="form-control" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label pt-1">Tanggal Edar</label>
+                                        <input id="details-publish-date" type="date" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border border-3 p-3 mt-1">
+                            <div class="pb-2">
+                                <div class="border-bottom my-2">4. KATEGORI</div>
+                                <label class="form-label pt-1">Kategori Buku</label>
+                                <select id="list-tags" class="form-control form-control form-select select2" multiple="multiple" required>
+                                    <option></option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Data harus diisi!
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-1 mb-1">
+                    <div class="col-12 text-center">
+                        <div class="p-3">
+                            <div class="pb-2">
+                                <button id="submit-book-button" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

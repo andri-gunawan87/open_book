@@ -19,7 +19,7 @@
     <div class="main-wrapper">
         <nav class="sidebar">
             <div class="sidebar-header">
-                <a href="#" class="sidebar-brand mx-auto">
+                <a href="/" class="sidebar-brand mx-auto">
                     <span>BOO</span>K
                 </a>
                 <div class="sidebar-toggler not-active">
@@ -37,21 +37,21 @@
                             <span class="link-title">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-item @(ViewBag.MainMenu == "Dashboard" ? "active" : "")">
+                    <li class="nav-item @(ViewBag.MainMenu == "Chart" ? "active" : "")">
                         <a href="/" class="nav-link">
-                            <i class="link-icon" data-feather="box"></i>
+                            <i class="link-icon" data-feather="pie-chart"></i>
                             <span class="link-title">Report</span>
                         </a>
                     </li>
-                    <li class="nav-item nav-category">LPI</li>
-                    <li class="nav-item @(ViewBag.MainMenu == "BuatLaporanBaru" ? "active" : "")">
-                        <a href="/document/create" class="nav-link">
+                    <li class="nav-item nav-category">Admin</li>
+                    <li class="nav-item @(ViewBag.MainMenu == "Book" ? "active" : "")">
+                        <a href="/book" class="nav-link">
                             <i class="link-icon" data-feather="edit-3"></i>
                             <span class="link-title">Datatable</span>
                         </a>
                     </li>
-                    <li class="nav-item @(ViewBag.MainMenu == "ScrapData" ? "active" : "")">
-                        <a href="/scrapbook/index" class="nav-link">
+                    <li class="nav-item @(ViewBag.MainMenu == "Scrap" ? "active" : "")">
+                        <a href="/scrap" class="nav-link">
                             <i class="link-icon" data-feather="table"></i>
                             <span class="link-title">Scrap</span>
                         </a>

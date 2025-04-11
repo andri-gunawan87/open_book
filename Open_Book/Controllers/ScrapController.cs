@@ -4,16 +4,21 @@ using Open_Book.Services;
 
 namespace Open_Book.Controllers
 {
-    public class ScrapBookController : Controller
+    public class ScrapController : Controller
     {
         private readonly IScrapService _scrapService;
 
-        public ScrapBookController(IScrapService scrapService)
+        public ScrapController(IScrapService scrapService)
         {
             _scrapService = scrapService;
         }
 
-        public async Task<IActionResult> Index(string page)
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Create()
         {
             return View();
         }

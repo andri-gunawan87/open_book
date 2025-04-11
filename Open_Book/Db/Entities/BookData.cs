@@ -8,6 +8,7 @@ namespace Open_Book.Db.Entities
         public string BookScrapId { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
         public string Summary { get; set; } = string.Empty;
+        public string CoverImage { get; set; } = string.Empty;
 
         public string AuthorId { get; set; } = string.Empty;
         public BookAuthor Author { get; set; } = null!;

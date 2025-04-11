@@ -8,7 +8,7 @@
         public decimal Price { get; set; }
         public int TotalPages { get; set; }
         public string Size { get; set; } = string.Empty;
-        public string PublishedDate { get; set; } = string.Empty;
+        public DateTime? PublishedDate { get; set; }
 
         public string BookDataId { get; set; } = string.Empty;
         public BookData BookData { get; set; } = null!;

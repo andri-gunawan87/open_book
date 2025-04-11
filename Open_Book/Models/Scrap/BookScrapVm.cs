@@ -12,6 +12,8 @@ namespace Open_Book.Models.Scrap
         [JsonPropertyName("_id")]
         public string Id { get; set; } = string.Empty;
         public string Title { get; set; } = string.Empty;
+        [JsonPropertyName("cover_image")]
+        public string CoverImage { get; set; } = string.Empty;
         public Author Author { get; set; } = new Author();
         public string Summary { get; set; } = string.Empty;
         public Details Details { get; set; } = new Details();

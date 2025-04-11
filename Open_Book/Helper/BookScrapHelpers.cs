@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 
 namespace Open_Book.Helper
@@ -46,6 +47,13 @@ namespace Open_Book.Helper
             }
 
             return 0;
+        }
+
+        public static string GenerateRandomHex24()
+        {
+            byte[] buffer = new byte[12];
+            RandomNumberGenerator.Fill(buffer);
+            return BitConverter.ToString(buffer).Replace("-", "").ToLower();
         }
     }
 }

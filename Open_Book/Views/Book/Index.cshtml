@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Book";
+    ViewBag.MainMenu = "Book";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Stylesheets {
+    <link rel="stylesheet" href="~/lib/Datatables/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="~/lib/select2/select2.min.css">
+}
+
+@section Scripts {
+    <script src="~/lib/Datatables/jquery.dataTables.js"></script>
+    <script src="~/lib/Datatables/dataTables.bootstrap5.js"></script>
+    <script src="~/lib/select2//select2.min.js"></script>
+    <script src="~/Page/BookIndex.js"></script>
+}
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+            <h6 class="card-title mb-0">Daftar Buku</h6>
+            <div class="dropdown">
+                <a class="btn btn-primary btn-icon-text" role="button" href="/book/create">
+                    <i class="btn-icon-prepend" data-feather="check-square"></i>
+                    Tambah Data Buku
+                </a>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table id="main-table" class="table">
+                <thead>
+                    <tr>
+                        <th class="sort align-middle text-center">No</th>
+                        <th class="sort align-middle text-center">Judul</th>
+                        <th class="sort align-middle text-center">Pengarang</th>
+                        <th class="sort align-middle text-center">Harga</th>
+                        <th class="sort align-middle text-center">Halaman</th>
+                        <th class="sort align-middle text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

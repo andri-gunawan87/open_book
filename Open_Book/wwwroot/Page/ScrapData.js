@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(function () {
     $("#submit-form").on("click", async function (event) {
         event.preventDefault()
 
@@ -20,11 +20,8 @@
                     type: "POST",
                     dataType: "json",
                     contentType: "application/json",
-                    url: `/scrapbook/getdata`,
+                    url: `/scrap/getdata`,
                     data: JSON.stringify(requestData),
-                    //headers: {
-                    //    Authorization: 'Bearer ' + jwtToken
-                    //},
                     success: function (response) {
                         if (response.success == true) {
                             Swal.fire({

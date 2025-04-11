@@ -57,6 +57,7 @@ namespace Open_Book.Services
                                 BookScrapId = book.Id,
                                 Title = book.Title,
                                 Summary = book.Summary,
+                                CoverImage = book.CoverImage,
                             };
 
                             var bookAuthor = new BookAuthor();
@@ -87,7 +88,7 @@ namespace Open_Book.Services
                                 Price = BookScrapHelpers.ParsePrice(book.Details.Price),
                                 TotalPages = BookScrapHelpers.ParseTotalPages(book.Details.TotalPages),
                                 Size = book.Details.Size,
-                                PublishedDate = book.Details.PublishedDate
+                                PublishedDate = BookScrapHelpers.ParsePublishedDate(book.Details.PublishedDate)
                             };
 
                             List<BookTags> newListBookTags = [];
