@@ -1,0 +1,127 @@
+﻿@model Open_Book.Models.Book.DetailBookResponseVm
+
+@{
+	ViewBag.Title = "Book";
+	ViewBag.MainMenu = "Book";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Stylesheets {
+<link rel="stylesheet" href="~/lib/select2/select2.min.css">
+}
+
+@section Scripts {
+<script src="~/lib/select2//select2.min.js"></script>
+<script src="~/Page/BookCreate.js"></script>
+}
+<style>
+	.detail-buku__img {
+	margin-right: 30px;
+	}
+
+	.card-body {
+	margin: 40px 150px;
+	}
+
+	.detail-buku__img img {
+	max-height: 480px;
+	max-width: 320px;
+	}
+
+	.details-tags-value {
+	background: #51c2f3;
+	border-radius: 20px;
+	margin: 5px 5px 5px 0;
+	padding: 5px 15px;
+	}
+
+	.details-tags-value a {
+	color: #fff;
+	font-size: 15px;
+	}
+
+
+</style>
+
+<div class="card">
+	<div class="card-body">
+		<div class="d-flex detail-buku-wrap pb-5">
+			<div class="detail-buku__img">
+				<img src="@Model.CoverImage" alt="Yang Muda yang Bekerja">
+			</div>
+			<div class="detail-buku__container flex-grow-1">
+				<h2 class="detail-buku__category"></h2>
+				<h1 class="detail-buku__title">@Model.Title</h1>
+				<h3 class="detail-buku__author mb-2">
+					Author:
+					<a href="@Model.Author?.Url">
+						<span>@Model.Author?.Name</span>
+					</a>
+				</h3>
+				<div class="tab-content" id="pills-tabContent">
+					<div class="show active mb-2" id="pills-summary" role="tabpanel" aria-labelledby="pills-summary-tab">
+						<div class="tab-readmore no-after">
+							<p>@Model.Summary</p>
+						</div>
+					</div>
+					<div class="position-relative" id="pills-details" role="tabpanel" aria-labelledby="pills-details-tab">
+						<div class="row">
+							<div class="col-6">
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">No. GM <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">@Model.Details?.NoGm</div>
+									</div>
+								</div>
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">ISBN <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">@Model.Details?.Isbn</div>
+									</div>
+								</div>
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">Price <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">Rp @Model.Details?.Price</div>
+									</div>
+								</div>
+
+							</div>
+							<div class="col-6">
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">Total Pages <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">@Model.Details?.TotalPages pages</div>
+									</div>
+								</div>
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">Size <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">@Model.Details?.Size</div>
+									</div>
+								</div>
+								<div>
+									<div class="row mb-3">
+										<div class="col-4 col-lg-3 details-label">Published <span style="float: right;">:</span></div>
+										<div class="col-8 col-lg-9 details-value">@Model.Details?.PublishedDate?.ToString("dd MM yyyy")</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="details-tags">
+						<div class="details-tags-label">Tags</div>
+						<div class="d-flex flex-wrap">
+							@foreach (var tag in Model.BookTags!)
+							{
+								<div class="details-tags-value">
+									<a href="@tag.Url">@tag.Name</a>
+								</div>
+							}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

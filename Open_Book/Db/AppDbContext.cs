@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Open_Book.Db.Entities;
 using Open_Book.Services;
+using System.Reflection;
 
 namespace Open_Book.Db
 {
@@ -26,6 +27,18 @@ namespace Open_Book.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                if (typeof(BaseAuditTrail).IsAssignableFrom(entityType.ClrType))
+                {
+                    var method = typeof(AppDbContext)
+                        .GetMethod(nameof(SetSoftDeleteFilter), BindingFlags.NonPublic | BindingFlags.Static)!
+                        .MakeGenericMethod(entityType.ClrType);
+
+                    method.Invoke(null, new object[] { modelBuilder });
+                }
+            }
+
             modelBuilder.Entity<BookData>()
                 .HasOne(b => b.Details)
                 .WithOne(d => d.BookData)
@@ -97,6 +110,11 @@ namespace Open_Book.Db
             }
 
             return await base.SaveChangesAsync(cancellationToken);
+        }
+
+        private static void SetSoftDeleteFilter<TEntity>(ModelBuilder builder) where TEntity : BaseAuditTrail
+        {
+            builder.Entity<TEntity>().HasQueryFilter(e => e.DeletedAt == null);
         }
     }
 }

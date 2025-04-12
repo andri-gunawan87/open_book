@@ -2,12 +2,14 @@
 
 namespace Open_Book.Models.Book
 {
-    public class DatatableBookResponseVm
+    public class DetailBookResponseVm
     {
         public string? Id { get; set; }
         public string? BookScrapId { get; set; }
         public string? Title { get; set; }
         public string? Summary { get; set; }
+
+        public string? CoverImage { get; set; }
 
         public string? AuthorId { get; set; }
         public BookAuhtorResponseVm? Author { get; set; }
@@ -36,6 +38,7 @@ namespace Open_Book.Models.Book
 
     public class BookTagsResponseVm
     {
+        public string Id { get; set; } = string.Empty;
         public string Name { get; set; } = string.Empty;
         public string Url { get; set; } = string.Empty;
     }
