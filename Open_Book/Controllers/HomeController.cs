@@ -1,17 +1,12 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Open_Book.Models;
+using Open_Book.Services;
 
 namespace Open_Book.Controllers;
 
-public class HomeController : Controller
+public class HomeController(IDashboardService dashboardService) : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
 
     public IActionResult Index()
     {
@@ -27,5 +22,19 @@ public class HomeController : Controller
     public IActionResult Error()
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetDashboarData(int page)
+    {
+        try
+        {
+            var result = await dashboardService.ListBookPerPage(page);
+            return Json(new { success = true, message = "Success to retrieve data", data = result });
+        }
+        catch (Exception ex)
+        {
+            return Json(new { success = false, message = ex.Message });
+        }
     }
 }

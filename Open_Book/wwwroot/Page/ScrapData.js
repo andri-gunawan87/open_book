@@ -9,12 +9,12 @@
                 return false;
             }
             else {
+                $('#modal-loading').modal('show');
+
                 const requestData = {
                     Page: $('#page-number').val(),
                     Year: $('#book-year').val(),
                 }
-
-                console.log(requestData)
 
                 $.ajax({
                     type: "POST",
@@ -23,6 +23,7 @@
                     url: `/scrap/getdata`,
                     data: JSON.stringify(requestData),
                     success: function (response) {
+                        $('#modal-loading').modal('hide');
                         if (response.success == true) {
                             Swal.fire({
                                 icon: 'success',
@@ -47,6 +48,7 @@
                     },
                     error: function (jqXHR, textStatus) {
                         console.log(jqXHR, textStatus);
+                        $('#modal-loading').modal('hide');
                         Swal.fire({
                             icon: 'error',
                             title: "Error!",

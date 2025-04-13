@@ -3,7 +3,45 @@
     ViewBag.MainMenu = "Dashboard";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@section Scripts {
+	<script src="~/Page/Dashboard.js"></script>
+}
+<style>
+	.wrapper__list-buku
+	{
+		margin: 0px 20px;
+	}
+
+	.wrapper__list-buku .row {
+		align-items: end !important;
+	}
+
+	.book__wrapper-custom {
+		height: 80px;
+		margin-bottom: 30px;
+		margin-top: 15px;
+	}
+
+	.carousel__title {
+		color: darkcyan;
+	}
+
+</style>
+
+<div class="card">
+	<div class="card-body">
+		<div class="wrapper__list-buku">
+			<div class="content-filter-2 mb-2 text-center">
+				<h2>New Release</h2>
+			</div>
+			<div id="list-book">
+				<div id="root-list-book" class="row list-buku-row text-center">
+				</div>
+				<nav aria-label="...">
+					<ul id="pagination" class="pagination justify-content-center">
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
 </div>

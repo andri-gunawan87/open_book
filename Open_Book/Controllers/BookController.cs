@@ -48,7 +48,7 @@ namespace Open_Book.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> DataTable()
+        public async Task<IActionResult> ListBook()
         {
             try
             {

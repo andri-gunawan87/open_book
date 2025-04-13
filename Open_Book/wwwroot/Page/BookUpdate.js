@@ -94,8 +94,6 @@
             BookTags: bookTags
         }
 
-        console.log(requestData);
-
         let form = document.getElementById('update-book-form');
 
         if (form) {

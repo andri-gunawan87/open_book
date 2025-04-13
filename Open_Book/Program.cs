@@ -19,6 +19,7 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped(typeof(ICurrentUserService), typeof(CurrentUserService));
 builder.Services.AddScoped(typeof(IScrapService), typeof(ScrapService));
 builder.Services.AddScoped(typeof(IBookService), typeof(BookService));
+builder.Services.AddScoped(typeof(IDashboardService), typeof(DashboardService));
 
 var app = builder.Build();
 

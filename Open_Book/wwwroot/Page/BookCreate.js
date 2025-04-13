@@ -77,10 +77,10 @@
                                 confirmButtonText: 'Ok'
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.assign(`/book/detail?id=${bookId}`)
+                                    window.location.assign(`/book`)
                                 }
                                 else {
-                                    window.location.assign(`/book/detail?id=${bookId}`)
+                                    window.location.assign(`/book`)
                                 }
                             })
                         }

@@ -23,7 +23,7 @@
         autoWidth: false,
         responsive: true,
         ajax: {
-            url: `/book/datatable`,
+            url: `/book/listbook`,
             dataSrc: 'data',
             dataType: 'json',
         
